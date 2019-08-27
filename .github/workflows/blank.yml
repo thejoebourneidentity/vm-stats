@@ -12,10 +12,10 @@ jobs:
     - name: System Profiler
       run: system_profiler SPHardwareDataType
     - name: CPU Stats
-      run: system_profiler SPHardwareDataType | grep Cores: 
+      run: system_profiler SPHardwareDataType | grep Cores:
     - name: RAM Stats
       run: |
         system_profiler SPHardwareDataType | grep "  Memory:"
     - name: Disk Stats
-      run: |    
+      run: |
         diskutil info -all
