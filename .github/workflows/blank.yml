@@ -20,3 +20,4 @@ jobs:
     - name: Disk Stats
       run: |
         diskutil info -all
+        df -P
