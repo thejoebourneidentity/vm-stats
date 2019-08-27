@@ -17,7 +17,6 @@ jobs:
     - name: RAM Stats
       run: |
         system_profiler SPHardwareDataType | grep "  Memory:"
-    - name: Disk Stats
+    - name: Disk Stats # diskutil info -all
       run: |
-        diskutil info -all
         df -P
