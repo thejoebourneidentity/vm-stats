@@ -12,9 +12,8 @@ jobs:
     - name: System Profiler
       run: system_profiler SPHardwareDataType
     - name: CPU Stats
-      run: |
+      run: system_profiler SPHardwareDataType | grep Cores:
       # sysctl -a | grep machdep.cpu
-        system_profiler SPHardwareDataType | grep Cores:
     - name: RAM Stats
       run: |
         system_profiler SPHardwareDataType | grep "  Memory:"
