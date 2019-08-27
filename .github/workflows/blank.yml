@@ -13,10 +13,11 @@ jobs:
       run: system_profiler SPHardwareDataType
     - name: CPU Stats
       run: |
-        sysctl -a | grep machdep.cpu
+      # sysctl -a | grep machdep.cpu
         system_profiler SPHardwareDataType | grep Cores:
     - name: RAM Stats
       run: |
         system_profiler SPHardwareDataType | grep "  Memory:"
-        echo test, and deploy your project.
- 
+    - name: Disk Stats
+      run: |    
+        diskutil info -all
