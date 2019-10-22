@@ -19,37 +19,47 @@ jobs:
     - name: Windows System Profiler
       run: echo Hello World!
     - name: System Profiler
+      continue-on-error: true
       run: system_profiler SPHardwareDataType
     - name: CPU Stats
+      continue-on-error: true
       run: |
         system_profiler SPHardwareDataType | grep Cores:
     - name: RAM Stats
+      continue-on-error: true
       run: |
         system_profiler SPHardwareDataType | grep "  Memory:"
     - name: Disk Stats # diskutil info -all
+      continue-on-error: true
       run: |
         df -P
     - name: Dump GitHub context
+      continue-on-error: true
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
     - name: Dump job context
+      continue-on-error: true
       env:
         JOB_CONTEXT: ${{ toJson(job) }}
       run: echo "$JOB_CONTEXT"
     - name: Dump steps context
+      continue-on-error: true
       env:
         STEPS_CONTEXT: ${{ toJson(steps) }}
       run: echo "$STEPS_CONTEXT"
     - name: Dump runner context
+      continue-on-error: true
       env:
         RUNNER_CONTEXT: ${{ toJson(runner) }}
       run: echo "$RUNNER_CONTEXT"
     - name: Dump strategy context
+      continue-on-error: true
       env:
         STRATEGY_CONTEXT: ${{ toJson(strategy) }}
       run: echo "$STRATEGY_CONTEXT"
     - name: Dump matrix context
+      continue-on-error: true
       env:
         MATRIX_CONTEXT: ${{ toJson(matrix) }}
       run: echo "$MATRIX_CONTEXT"
