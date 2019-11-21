@@ -22,7 +22,9 @@ jobs:
       run: system_profiler SPHardwareDataType
     - name: Check UAC
       continue-on-error: true
-      run: (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System).EnableLUA
+      run: |
+        (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System).EnableLUA
+        Get-UACStatus
     - name: CPU Stats
       continue-on-error: true
       run: |
