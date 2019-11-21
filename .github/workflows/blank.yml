@@ -12,7 +12,6 @@ jobs:
           - ubuntu-16.04
           - ubuntu-18.04
           - macOS-latest
-          - pool: default
       
     steps:
     - uses: actions/checkout@v1
@@ -21,6 +20,9 @@ jobs:
     - name: System Profiler
       continue-on-error: true
       run: system_profiler SPHardwareDataType
+    - name: Check UAC
+      continue-on-error: true
+      run: (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System).EnableLUA
     - name: CPU Stats
       continue-on-error: true
       run: |
