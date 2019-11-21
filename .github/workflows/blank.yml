@@ -24,7 +24,7 @@ jobs:
       continue-on-error: true
       run: |
         (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System).EnableLUA
-        Get-UAC
+        REG QUERY HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ /v EnableLUA
     - name: CPU Stats
       continue-on-error: true
       run: |
