@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v1
       
     - name: Check Packages Sources
-      run: echo /etc/apt/sources.list.d
+      run: cat /etc/apt/sources.list.d
     
     - name: Windows System Profiler
       run: echo Hello World!
