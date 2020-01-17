@@ -27,6 +27,10 @@ jobs:
     - name: System Profiler
       continue-on-error: true
       run: system_profiler SPHardwareDataType
+
+    - name: Check RubyGems Version
+      continue-on-error: true
+      run: gem -v
       
     - name: Check UAC
       continue-on-error: true
