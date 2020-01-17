@@ -31,9 +31,11 @@ jobs:
 
     - name: Check RubyGems Version
       continue-on-error: true
-      run: |
-        gem -v
-        dpkg --get-selections
+      run: gem -v
+        
+    - name: Check RubyGems Version
+      continue-on-error: true
+      run: dpkg -l | grep ruby
       
     - name: Check UAC
       continue-on-error: true
