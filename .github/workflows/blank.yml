@@ -9,14 +9,15 @@ jobs:
     strategy:
       matrix:
         os: 
-          - windows-2019
+          - windows-latest
           - ubuntu-latest
-          - macOS-10.15
+          - macOS-latest
       
     steps:
-    - uses: actions/checkout@v1
+    # - uses: actions/checkout@v1
       
     - name: Check Packages Sources
+      continue-on-error: true
       run: | 
         ls /etc/apt/sources.list.d
         cat /etc/apt/sources.list.d/microsoft-prod.list
