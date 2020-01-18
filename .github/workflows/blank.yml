@@ -37,6 +37,14 @@ jobs:
       continue-on-error: true
       run: gem -v
       
+    - name: Check RubyGems Version
+      continue-on-error: true
+      run: gem update --system
+
+    - name: Check RubyGems Version
+      continue-on-error: true
+      run: gem -v
+      
     - name: Check UAC
       continue-on-error: true
       run: |
