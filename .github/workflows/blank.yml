@@ -29,13 +29,13 @@ jobs:
       continue-on-error: true
       run: system_profiler SPHardwareDataType
 
+    - name: NPM Install
+      continue-on-error: true
+      run: npm install rubygems
+
     - name: Check RubyGems Version
       continue-on-error: true
       run: gem -v
-        
-    - name: Check RubyGems Version
-      continue-on-error: true
-      run: sudo gem -v
       
     - name: Check UAC
       continue-on-error: true
