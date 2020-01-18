@@ -29,9 +29,9 @@ jobs:
       continue-on-error: true
       run: system_profiler SPHardwareDataType
 
-    - name: NPM Install
+    - name: NPM Install RubyGems
       continue-on-error: true
-      run: npm install rubygems
+      run: sudo apt-get install ruby-dev
 
     - name: Check RubyGems Version
       continue-on-error: true
