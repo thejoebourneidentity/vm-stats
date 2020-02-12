@@ -1,6 +1,6 @@
-name: CI
+name: New Push WF
 
-on: pull_request
+on: push
 
 jobs:
   build:
