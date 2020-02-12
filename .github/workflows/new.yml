@@ -1,4 +1,4 @@
-name: Pull Request from Master
+name: Pull Request new.yml Master
 
 on: pull_request
 
