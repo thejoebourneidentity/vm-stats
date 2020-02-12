@@ -1,4 +1,4 @@
-name: New Master V2
+name: Pull Request from Master
 
 on: pull_request
 
