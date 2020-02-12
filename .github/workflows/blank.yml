@@ -1,4 +1,4 @@
-name: CI
+name: Push blank.yaml on another-branch
 
 on: [push, pull_request]
 
