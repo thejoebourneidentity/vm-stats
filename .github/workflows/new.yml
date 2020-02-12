@@ -1,0 +1,103 @@
+name: New Master
+
+on: pull_request
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: 
+          - windows-latest
+          - ubuntu-latest
+          - macOS-latest
+      
+    steps:
+    # - uses: actions/checkout@v1
+      
+    - name: Check Packages Sources
+      continue-on-error: true
+      run: | 
+        ls /etc/apt/sources.list.d
+        cat /etc/apt/sources.list.d/microsoft-prod.list
+    
+    - name: Windows System Profiler
+      run: echo Hello World!
+    
+    - name: System Profiler
+      continue-on-error: true
+      run: system_profiler SPHardwareDataType
+
+    - name: NPM Install RubyGems
+      continue-on-error: true
+      run: sudo apt-get install ruby-dev
+
+    - name: Check RubyGems Version
+      continue-on-error: true
+      run: gem -v
+      
+    - name: Check RubyGems Version
+      continue-on-error: true
+      run: gem update --system
+
+    - name: Check RubyGems Version
+      continue-on-error: true
+      run: gem -v
+      
+    - name: Check UAC
+      continue-on-error: true
+      run: |
+        (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System).EnableLUA
+        REG QUERY HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ /v EnableLUA
+        
+    - name: CPU Stats
+      continue-on-error: true
+      run: |
+        system_profiler SPHardwareDataType | grep Cores:
+        
+    - name: RAM Stats
+      continue-on-error: true
+      run: |
+        system_profiler SPHardwareDataType | grep "  Memory:"
+        
+    - name: Disk Stats # diskutil info -all
+      continue-on-error: true
+      run: |
+        df -P
+        
+    - name: Dump GitHub context
+      continue-on-error: true
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
+      
+    - name: Dump job context
+      continue-on-error: true
+      env:
+        JOB_CONTEXT: ${{ toJson(job) }}
+      run: echo "$JOB_CONTEXT"
+      
+    - name: Dump steps context
+      continue-on-error: true
+      env:
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+      run: echo "$STEPS_CONTEXT"
+      
+    - name: Dump runner context
+      continue-on-error: true
+      env:
+        RUNNER_CONTEXT: ${{ toJson(runner) }}
+      run: echo "$RUNNER_CONTEXT"
+      
+    - name: Dump strategy context
+      continue-on-error: true
+      env:
+        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+      run: echo "$STRATEGY_CONTEXT"
+      
+    - name: Dump matrix context
+      continue-on-error: true
+      env:
+        MATRIX_CONTEXT: ${{ toJson(matrix) }}
+      run: echo "$MATRIX_CONTEXT"
