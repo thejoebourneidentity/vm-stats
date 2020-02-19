@@ -1,0 +1,14 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: |
+        sudo service mysql stop || true
+    - run: |
+        sudo service mysql start || true
