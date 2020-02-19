@@ -9,6 +9,6 @@ jobs:
 
     steps:
     - run: |
-        sudo service mysql stop || true
+        sudo service /etc/init.d/mysql stop
     - run: |
-        sudo service mysql start || true
+        sudo service /etc/init.d/mysql start
