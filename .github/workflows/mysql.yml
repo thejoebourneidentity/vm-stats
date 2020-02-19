@@ -8,10 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: sudo service mysql status
+    - run: |
+        sudo service mysql status || true
     - run: |
         sudo /etc/init.d/mysql stop
-    - run: sudo service mysql status
+    - run: |
+        sudo service mysql status || true
     - run: |
         sudo /etc/init.d/mysql start
-    - run: sudo service mysql status
+    - run: |
+        sudo service mysql status || true
