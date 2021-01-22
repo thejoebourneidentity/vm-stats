@@ -16,8 +16,9 @@ jobs:
           
       - name: Install Benchmark Tools
         run: |
-          sudo apt install sysbench --assume-yes
-          sudo apt install fio --assume-yes
+          sudo apt update
+          sudo apt install sysbench --assume-yes --fix-missing
+          sudo apt install fio --assume-yes --fix-missing
         
       - name: Run CPU Benchmark
         run: sysbench cpu --threads=32 --events=1000000 --time=120 run
