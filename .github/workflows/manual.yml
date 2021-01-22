@@ -6,12 +6,6 @@ on:
 jobs:
   Demo:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        premium-runners:
-          - 2-core-is-nice
-          - 64-core-like-whoa
-          # - gpu-omg
 
     steps:
       - name: Machine Stats
